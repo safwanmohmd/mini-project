@@ -7,7 +7,7 @@ const initialState = {
 }
 
 export const fetchProducts = createAsyncThunk('products/fetch', async () => {
-    const response = await axios.get('https://fakestoreapi.com/products');
+  const response = await axios.get('/data.json');
   console.log(response.data);
     return response.data
 

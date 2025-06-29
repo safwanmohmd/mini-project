@@ -3,7 +3,8 @@ import axios from "axios";
 
 const initialState = {
     cart: [],
-    loading : false
+    loading: false,
+    total : 0
 
 }
 
@@ -14,10 +15,30 @@ const cartlice = createSlice({
     initialState,
     reducers: {
         addToCart: (state, action) => {
-            state.cart = [...state.cart, action.payload]
-            console.log(state.cart);
+
+            const exists = state.cart.find((x) => x.id == action.payload.id)
+            if (!exists) {
+                let newItem = { ...action.payload, count: 1 };
+                state.cart.push(newItem);
+
+            } else {
+                exists.count++;
+                // console.log(exists.count);
+
+            }
+            
+    
+
         },
-        clearCart: (state)=>{
+        updateQty: (state, action) => {
+            const { id, count } = action.payload;
+            const item = state.cart.find((x) => x.id === id);
+            if (item) {
+                item.count = count;
+                console.log(item.count);
+            }
+        },
+        clearCart: (state) => {
             state.cart = []
         }
 
@@ -25,6 +46,6 @@ const cartlice = createSlice({
 
 })
 
-export const {addToCart, clearCart} = cartlice.actions
+export const { addToCart, clearCart, updateQty } = cartlice.actions
 
 export default cartlice.reducer

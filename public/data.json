@@ -1,0 +1,66 @@
+[
+  {
+    "id": 1,
+    "title": "Spicy Chicken Biryani",
+    "price": 180,
+    "description": "Aromatic basmati rice cooked with tender chicken, spices, and herbs, served with raita.",
+    "category": "main course",
+    "image": "https://www.themealdb.com/images/media/meals/xrttsx1487339558.jpg",
+    "rating": { "rate": 4.5, "count": 150 }
+  },
+  {
+    "id": 2,
+    "title": "Veg Masala Dosa",
+    "price": 70,
+    "description": "Crispy South Indian dosa filled with spiced mashed potatoes, served with chutney and sambar.",
+    "category": "breakfast",
+    "image": "https://www.themealdb.com/images/media/meals/uvuyxu1503067369.jpg",
+    "rating": { "rate": 4.3, "count": 110 }
+  },
+  {
+    "id": 3,
+    "title": "Butter Chicken",
+    "price": 220,
+    "description": "Rich tomato-based curry with succulent chicken pieces, finished with cream and butter.",
+    "category": "main course",
+    "image": "https://www.themealdb.com/images/media/meals/uyqrrv1511553350.jpg",
+    "rating": { "rate": 4.7, "count": 320 }
+  },
+  {
+    "id": 4,
+    "title": "Paneer Tikka",
+    "price": 160,
+    "description": "Chunks of marinated paneer grilled to perfection, served with mint chutney.",
+    "category": "starter",
+    "image": "https://www.themealdb.com/images/media/meals/qtuwxu1468233098.jpg",
+    "rating": { "rate": 4.2, "count": 180 }
+  },
+  {
+    "id": 5,
+    "title": "Chicken Shawarma Roll",
+    "price": 90,
+    "description": "Grilled chicken wrapped in flatbread with garlic mayo, veggies, and spices.",
+    "category": "snack",
+    "image": "https://www.themealdb.com/images/media/meals/kcv6hj1598733479.jpg",
+    "rating": { "rate": 4.6, "count": 240 }
+  },
+  {
+    "id": 6,
+    "title": "Mutton Rogan Josh",
+    "price": 260,
+    "description": "Slow-cooked mutton curry infused with Kashmiri red chilies and aromatic spices.",
+    "category": "main course",
+    "image": "https://www.themealdb.com/images/media/meals/vvstvq1487342592.jpg",
+    "rating": { "rate": 4.4, "count": 130 }
+  },
+  {
+    "id": 7,
+    "title": "Chicken 65",
+    "price": 120,
+    "description": "Spicy deep-fried chicken chunks tossed in curry leaves, garlic, and red chili.",
+    "category": "starter",
+    "image": "https://www.themealdb.com/images/media/meals/yvpuuy1511797244.jpg",
+    "rating": { "rate": 4.1, "count": 200 }
+  }
+
+]

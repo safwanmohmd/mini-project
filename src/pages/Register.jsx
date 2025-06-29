@@ -3,30 +3,15 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { setLoggedUser } from "../features/authSlice";
 import { useDispatch,useSelector } from "react-redux";
-import toast, { Toaster } from 'react-hot-toast';
-
-const Login = () => {
-const getUsers = useSelector((state)=> state.auth.userList)
+import { addUser } from "../features/authSlice";
+const Register = () => {
   const dispatch = useDispatch()
-  const navigate = useNavigate();
-
-  const [user, setUser] = useState();
-  const [pass, setPass] = useState();
-const handleLogin = (e) => {
-  e.preventDefault();
-
-  const matchedUser = getUsers.find(
-    (usr) => usr.user === user && usr.pass === pass
-  );
-
-  if (matchedUser) {
-    dispatch(setLoggedUser(user));
-     toast.success(`Logined User ${user}`)
-    navigate("/");
-  } else {
-    toast.error("invalid credentials")
+ const [regUser, setRegUser] = useState()
+ const [regPass, setRegPass] = useState()
+  const handleRegister = (e) =>{
+    e.preventDefault()
+dispatch(addUser({user:regUser, pass:regPass}))
   }
-};
   return (
     <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-yellow-100 to-orange-100 px-4">
       <div className="w-full max-w-sm bg-white p-8 rounded-2xl shadow-lg border border-orange-200">
@@ -35,35 +20,34 @@ const handleLogin = (e) => {
         </h2>
         <form className="space-y-5">
           <input
-            onInput={(e) => setUser(e.target.value)}
+           onInput={(e)=> setRegUser(e.target.value)}
             type="text"
             placeholder="Username"
             className="w-full px-4 py-2 border border-orange-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-orange-400"
           />
           <input
-            onInput={(e) => setPass(e.target.value)}
+            onInput={(e)=> setRegPass(e.target.value)}
             type="password"
             placeholder="Password"
             className="w-full px-4 py-2 border border-orange-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-orange-400"
           />
           <button
-            onClick={(e) => handleLogin(e)}
+          onClick={(e)=>handleRegister(e)}
             type="submit"
             className="w-full bg-orange-500 text-white py-2 rounded-lg hover:bg-orange-600 transition duration-300"
           >
-            Login
+            Register
           </button>
         </form>
         <p className="text-sm text-center text-gray-500 mt-4">
           New here?{" "}
-          <a href="register" className="text-orange-500 hover:underline">
-            Create an account
+          <a href="login" className="text-orange-500 hover:underline">
+           Alredy Have An Acoount ? Login
           </a>
         </p>
       </div>
-      <Toaster />
     </div>
   );
 };
 
-export default Login;
+export default Register;
