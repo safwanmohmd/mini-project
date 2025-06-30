@@ -3,11 +3,20 @@ import { fetchProducts } from "../features/productSlice";
 import { useDispatch, useSelector } from "react-redux";
 import ProductCard from "../componants/ProductCard";
 import Navbar from "../componants/Navbar";
+import { addUser } from "../features/authSlice";
 const Home = () => {
   const dispatch = useDispatch();
   const { items, loading } = useSelector((state) => state.products);
+  const existUser = useSelector((state)=>state.auth.userList)
   useEffect(() => {
     dispatch(fetchProducts());
+
+     const exists = existUser.find((x) => x.role == 'admin')
+ if(!exists){
+dispatch(addUser({user:'admin', pass:'admin@123' , role : 'admin'}))
+
+ }
+    
   }, []);
   return (
     <>

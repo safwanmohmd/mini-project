@@ -10,7 +10,7 @@ const Register = () => {
  const [regPass, setRegPass] = useState()
   const handleRegister = (e) =>{
     e.preventDefault()
-dispatch(addUser({user:regUser, pass:regPass}))
+dispatch(addUser({user:regUser, pass:regPass , role : 'user'}))
   }
   return (
     <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-yellow-100 to-orange-100 px-4">
