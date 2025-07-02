@@ -19,11 +19,16 @@ const handleLogin = (e) => {
     (usr) => usr.user === user && usr.pass === pass
   );
 
-  if (matchedUser) {
-    dispatch(setLoggedUser(user));
-     toast.success(`Logined User ${user}`)
-    navigate("/");
+if (matchedUser) {
+  dispatch(setLoggedUser({ user, role: matchedUser.role }));
+  toast.success(`Logined User ${user}`);
+
+  if (matchedUser.role === 'admin') {
+    navigate('/admin');
   } else {
+    navigate('/');
+  }
+} else {
     toast.error("invalid credentials")
   }
 };

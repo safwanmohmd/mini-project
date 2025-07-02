@@ -6,9 +6,10 @@ import Admin from './pages/Admin'
 import Cart from './pages/Cart'
 import Register from './pages/Register'
 import Dashboard from './pages/dashboard'
-
+import AdminProtectedRoute from './componants/AdminProtedRoute'
 import ProtectedRoute from './componants/ProtectedRoute'
 import { useSelector } from 'react-redux'
+import NotAuthorized from './pages/NotAuth'
 const App = () => {
 
 
@@ -18,12 +19,13 @@ const App = () => {
   <Route path='/' element={<Home/>}/>
   <Route path='/login' element={<Login/>}/>
   <Route path='/register' element={<Register/>}/>
-  <Route path='/admin' element={<Admin/>}/>
+  <Route path='/notauth' element={<NotAuthorized/>}/>
+  
   <Route path='/cart' element={<Cart/>}/>
-  <Route path='/dashboard' element={
-  <ProtectedRoute>
-    <Dashboard />
-  </ProtectedRoute>}/>
+  <Route path='/admin' element={
+  <AdminProtectedRoute>
+    <Admin />
+  </AdminProtectedRoute>}/>
     </Routes>
   
   )

@@ -10,6 +10,8 @@ const Register = () => {
  const [regPass, setRegPass] = useState()
   const handleRegister = (e) =>{
     e.preventDefault()
+
+    const existUser = 
 dispatch(addUser({user:regUser, pass:regPass , role : 'user'}))
   }
   return (

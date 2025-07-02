@@ -11,13 +11,26 @@ const authSlice = createSlice({
     initialState,
     reducers: {
         addUser: (state, action) => {
+
+            const exist = state.userList.find((usr) => {
+                return usr.user == action.payload.user
+            })
+            if(exist){
+                return alert('The User Alery Exist')
+            }
             state.userList = [...state.userList, action.payload]
             console.log(state.userList);
             localStorage.setItem('usersList', JSON.stringify(state.userList))
         },
         setLoggedUser: (state, action) => {
+            
             state.user = action.payload
-            localStorage.setItem('loggedInUser', JSON.stringify(state.user))
+            if (action.payload){
+                 localStorage.setItem('loggedInUser', JSON.stringify({user: action.payload.user , role: action.payload.role} ))
+            } else {
+                  localStorage.setItem('loggedInUser', JSON.stringify({user: null, role: null} ))
+            }
+           
             console.log(state.user);
         }
     }

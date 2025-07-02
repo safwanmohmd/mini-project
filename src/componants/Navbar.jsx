@@ -8,7 +8,7 @@ import { toggleTheme } from "../features/themeSlice";
 const Navbar = () => {
   const dispatch = useDispatch();
   const cartCount = useSelector((state) => state.cart.cart.length);
-  const user = useSelector((state) => state.auth.user);
+  const user = useSelector((state) => state.auth.user?.user);
 
   const handleLogout = () => {
     dispatch(setLoggedUser(null));
@@ -52,9 +52,7 @@ const Navbar = () => {
           <Link to="/" className="hover:underline transition">
             Home
           </Link>
-          <Link to="/menu" className="hover:underline transition">
-            Menu
-          </Link>
+          
 
           {!user ? (
             <Link to="/login" className="hover:underline transition">
