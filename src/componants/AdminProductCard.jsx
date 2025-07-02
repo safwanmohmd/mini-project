@@ -17,13 +17,14 @@ const [title,setTitle] = useState(product.title)
   const cartItems = useSelector((state) => state.products.items);
 
 const handleEdit= ()=>{
+  toast.success("updated product successfully");
 dispatch(editProduct({id : product.id , price : editAmount, title :title}))
 setEditMode(false)
 }
   return (
    <div className="p-6">
      
-
+<Toaster/>
 
       {cartItems.length === 0 ? (
         <p className="text-gray-600">products is empty.</p>
@@ -58,7 +59,7 @@ setEditMode(false)
                 >
                   cancel
                 </button> </div> ) : (<div className="flex gap-2"> <button
-                   onClick={() => dispatch(deleteProduct(product))}
+                   onClick={() => { dispatch(deleteProduct(product)),  toast.success("deleted product successfully");}}
                   className="mt-4 sm:mt-0 bg-red-500 text-white px-3 py-1 rounded hover:bg-red-600"
                 >
                   Remove

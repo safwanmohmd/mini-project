@@ -20,7 +20,7 @@ dispatch(addUser({user:'admin', pass:'admin@123' , role : 'admin'}))
   }, []);
   return (
     <>
-<Navbar />
+{/* <Navbar /> */}
       <div className="container mx-auto gap-4 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4">
         {loading ? (
           <div>Loading</div>

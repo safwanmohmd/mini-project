@@ -1,5 +1,6 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import axios from "axios";
+
 const getProductsList = JSON.parse(localStorage.getItem('productList'))
 const initialState = {
     items: getProductsList || [],
@@ -25,12 +26,15 @@ const productSlice = createSlice({
             state.items = newItem;
         },
         deleteProduct: (state, action) => {
+           
             const filtered = state.items.filter((x) => x.id !== action.payload.id)
             state.items = filtered
              localStorage.setItem('productList', JSON.stringify(state.items));
         } ,
         editProduct :(state,action) =>{
+          
              const { id, title, price} = action.payload
+            
             const matchProduct = state.items.find((x)=> x.id === id)
             matchProduct.price = price
             matchProduct.title = title

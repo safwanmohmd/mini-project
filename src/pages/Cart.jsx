@@ -2,7 +2,7 @@ import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { clearCart } from '../features/cartSlice';
 import CartItemCard from '../componants/CartItemCard';
-
+import Navbar from '../componants/Navbar';
 const Cart = () => {
   const dispatch = useDispatch();
   const cartProducts = useSelector((state) => state.cart.cart);
@@ -12,6 +12,7 @@ const Cart = () => {
 
   return (
     <>
+    <Navbar/>
       <div className="flex justify-between items-center mb-4 px-4">
         <h2 className="text-2xl font-bold">Your Cart</h2>
         <button

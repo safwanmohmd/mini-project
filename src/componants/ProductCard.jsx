@@ -23,7 +23,7 @@ const ProductCard = ({ product }) => {
 
   return (
     <div className="max-w-sm rounded-2xl overflow-hidden shadow-md border border-orange-200 bg-white transition hover:shadow-xl">
-      <div className="h-56 bg-orange-50 flex items-center justify-center overflow-hidden">
+      <div className="h-30 bg-orange-50 flex items-center justify-center overflow-hidden">
         <img
           src={product.image}
           alt={product.name}
