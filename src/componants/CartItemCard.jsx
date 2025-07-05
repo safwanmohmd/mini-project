@@ -3,7 +3,8 @@ import { useDispatch } from "react-redux";
 import { addToCart } from "../features/cartSlice";
 import toast, { Toaster } from "react-hot-toast";
 import { updateQty } from "../features/cartSlice";
-
+import { MdDeleteForever } from "react-icons/md";
+import { removeItem } from "../features/cartSlice";
 const CartItemCard = ({ product }) => {
   const dispatch = useDispatch();
   const [newqty, setNewQty] = useState(product.count);
@@ -14,6 +15,11 @@ const CartItemCard = ({ product }) => {
      dispatch(updateQty({ id: product.id, count: e.target.value }));
     }
   };
+
+  const handleRemove=()=>{
+    toast.success(`removed item ${product.title}`);
+    dispatch(removeItem(product))
+  }
 
   return (
     <div className="bg-white rounded-xl border shadow-sm p-4 flex flex-col gap-2">
@@ -39,6 +45,9 @@ const CartItemCard = ({ product }) => {
           onChange={handleQtyChange}
           className="w-16 px-2 py-1 border border-gray-300 rounded-md text-center text-sm focus:outline-none focus:ring-2 focus:ring-orange-500"
         />
+        <button onClick={handleRemove} className="bg-orange-500 hover:bg-orange-600 text-white px-4 py-2 rounded-lg font-medium transition duration-300">
+           <MdDeleteForever />
+          </button>
       </div>
       <Toaster />
       <div className="text-right font-semibold text-orange-600">

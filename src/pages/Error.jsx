@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import { useSelector } from "react-redux";
 import Navbar from "../componants/Navbar";
 
-const NotAuthorized = () => {
+const Error = () => {
   const darkMode = useSelector((state) => state.theme.darkMode);
 
   return (
@@ -21,24 +21,27 @@ const NotAuthorized = () => {
               darkMode ? "bg-gray-800" : "bg-white"
             }`}
           >
-            <h1 className="text-4xl sm:text-5xl font-bold text-red-500 mb-4">
-              403 - Not Authorized
+            <h1 className="text-7xl font-extrabold text-orange-500 mb-4">
+              404
             </h1>
+            <h2 className="text-3xl font-semibold mb-2">
+              Page Not Found
+            </h2>
             <p
-              className={`text-lg max-w-md mb-6 ${
+              className={`max-w-md mb-6 ${
                 darkMode ? "text-gray-400" : "text-gray-600"
               }`}
             >
-              You don’t have permission to access this page.
+              Oops! The page you are looking for doesn’t exist or has been moved.
             </p>
 
             <Link to="/">
               <button className="bg-orange-500 hover:bg-orange-600 text-white px-6 py-2 rounded-full transition duration-300">
-                ⬅️ Go to Homepage
+                ⬅️ Back to Home
               </button>
             </Link>
 
-         
+           
           </div>
         </div>
       </div>
@@ -46,4 +49,4 @@ const NotAuthorized = () => {
   );
 };
 
-export default NotAuthorized;
+export default Error;

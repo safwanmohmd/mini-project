@@ -3,24 +3,27 @@ import { useDispatch, useSelector } from 'react-redux';
 import { clearCart } from '../features/cartSlice';
 import CartItemCard from '../componants/CartItemCard';
 import Navbar from '../componants/Navbar';
+import { useNavigate } from 'react-router-dom';
+
 const Cart = () => {
+  const navigate = useNavigate()
   const dispatch = useDispatch();
   const cartProducts = useSelector((state) => state.cart.cart);
   const total = cartProducts.reduce((acc, item) => {
     return acc + item.price * item.count;
   }, 0);
 
+  const handleCheckout = ()=>{
+    navigate('/checkout')
+   
+  }
+
   return (
     <>
     <Navbar/>
       <div className="flex justify-between items-center mb-4 px-4">
         <h2 className="text-2xl font-bold">Your Cart</h2>
-        <button
-          className="bg-red-600 text-white px-4 py-2 rounded-lg hover:bg-red-700 transition"
-          onClick={() => dispatch(clearCart())}
-        >
-          Clear
-        </button>
+       
       </div>
 
       <div className="container mx-auto grid gap-4 grid-cols-1 sm:grid-cols-2 md:grid-cols-3 px-4">
@@ -38,9 +41,18 @@ const Cart = () => {
           <div className="text-xl font-semibold text-gray-800">
             Total: ₹{total.toFixed(2)}
           </div>
-          <button className="bg-orange-500 hover:bg-orange-600 text-white px-4 py-2 rounded-lg font-medium transition duration-300">
+        
+          
+  <div className='flex gap-2'>
+     <button onClick={handleCheckout} className="bg-orange-500 hover:bg-orange-600 text-white px-4 py-2 rounded-lg font-medium transition duration-300">
             Checkout
           </button>
+          <button  onClick={() => dispatch(clearCart())} className="bg-red-500 hover:bg-orange-600 text-white px-4 py-2 rounded-lg font-medium transition duration-300">
+            clear
+          </button>
+  </div>
+         
+           
         </div>
       )}
     </>

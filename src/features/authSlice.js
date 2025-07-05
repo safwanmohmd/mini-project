@@ -12,12 +12,7 @@ const authSlice = createSlice({
     reducers: {
         addUser: (state, action) => {
 
-            const exist = state.userList.find((usr) => {
-                return usr.user == action.payload.user
-            })
-            if(exist){
-                return alert('The User Alery Exist')
-            }
+           
             state.userList = [...state.userList, action.payload]
             console.log(state.userList);
             localStorage.setItem('usersList', JSON.stringify(state.userList))
