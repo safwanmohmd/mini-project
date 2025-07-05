@@ -1,11 +1,11 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import { FaShoppingCart, FaMoon, FaSun, FaSearch } from "react-icons/fa";
+import { FaShoppingCart, FaMoon, FaSun } from "react-icons/fa";
 import { CiUser } from "react-icons/ci";
 import { useSelector, useDispatch } from "react-redux";
-import { setLoggedUser } from "../features/authSlice";
+import { setLoggedUser, addUser } from "../features/authSlice";
 import { toggleTheme } from "../features/themeSlice";
-import { setSearch, filterProducts, setCategory } from "../features/productSlice";
+import { setSearch, filterProducts, setCategory, fetchProducts } from "../features/productSlice";
 
 const Navbar = () => {
   const dispatch = useDispatch();
@@ -15,10 +15,11 @@ const Navbar = () => {
   const user = useSelector((state) => state.auth.user);
   const darkMode = useSelector((state) => state.theme.darkMode);
   const { search, category } = useSelector((state) => state.products);
+  const existUser = useSelector((state) => state.auth.userList);
 
   const handleLogout = () => {
     dispatch(setLoggedUser(null));
-navigate("/")
+    navigate("/");
   };
 
   const handleSearch = (e) => {
@@ -30,6 +31,16 @@ navigate("/")
     dispatch(setCategory(e.target.value));
     dispatch(filterProducts());
   };
+
+  useEffect(() => {
+    dispatch(fetchProducts());
+    dispatch(filterProducts());
+
+    const exists = existUser?.find((x) => x.role === "admin");
+    if (!exists) {
+      dispatch(addUser({ user: "admin", pass: "admin@123", role: "admin" }));
+    }
+  }, []);
 
   return (
     <nav
@@ -47,7 +58,6 @@ navigate("/")
                 Home
               </Link>
             </li>
-            
             <li>
               <Link to="/menu" className="hover:text-black transition">
                 Menu
@@ -111,18 +121,16 @@ navigate("/")
           </Link>
 
           {/* User Info */}
-          <div className="text-sm whitespace-nowrap">
-            {user.user ? (
-              <span className="inline-flex items-center gap-1">
-                <CiUser />
-                {user.user}
-              </span>
-            ) : null}
-          </div>
+          {user?.user && (
+            <div className="text-sm whitespace-nowrap inline-flex items-center gap-1">
+              <CiUser />
+              {user.user}
+            </div>
+          )}
 
           {/* Admin Button */}
-          {user.role === "admin" && (
-            <Link to={"/admin"}>
+          {user?.role === "admin" && (
+            <Link to="/admin">
               <button className="bg-red-400 hover:bg-yellow-500 px-3 py-1 rounded-full text-sm font-semibold">
                 GoAdmin
               </button>
@@ -130,7 +138,7 @@ navigate("/")
           )}
 
           {/* Auth Buttons */}
-          {!user.user ? (
+          {!user?.user ? (
             <>
               <Link to="/register">
                 <button className="bg-yellow-400 hover:bg-yellow-500 px-3 py-1 rounded-full text-sm font-semibold">
