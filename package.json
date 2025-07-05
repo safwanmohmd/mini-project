@@ -4,7 +4,7 @@
   "version": "0.0.0",
   "type": "module",
 
-  "homepage": "https://<your-username>.github.io/mini-project",
+
   "scripts": {
     "dev": "vite",
     "build": "vite build",
