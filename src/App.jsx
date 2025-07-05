@@ -14,19 +14,19 @@ const App = () => {
 
 
   return (
-<HomePage/>
-//  <Routes>
-//   <Route path='/' element={<HomePage/>}/>
-//   <Route path='/login' element={<Login/>}/>
-//   <Route path='/register' element={<Register/>}/>
-//   <Route path='/notauth' element={<NotAuthorized/>}/>
-//   <Route path='/menu' element={<Menu/>}/>
-//   <Route path='/checkout' element={<Checkout/>}/>
 
-//   <Route path='/cart' element={ <ProtectedRoute> <Cart />  </ProtectedRoute>}/>
-//   <Route path='/admin' element={ <AdminProtectedRoute> <Admin /> </AdminProtectedRoute> }/>
-//   <Route path='*' element={<Error/>}/>
-//  </Routes>
+ <Routes>
+  <Route path='/' element={<HomePage/>}/>
+  <Route path='/login' element={<Login/>}/>
+  <Route path='/register' element={<Register/>}/>
+  <Route path='/notauth' element={<NotAuthorized/>}/>
+  <Route path='/menu' element={<Menu/>}/>
+  <Route path='/checkout' element={<Checkout/>}/>
+
+  <Route path='/cart' element={ <ProtectedRoute> <Cart />  </ProtectedRoute>}/>
+  <Route path='/admin' element={ <AdminProtectedRoute> <Admin /> </AdminProtectedRoute> }/>
+  <Route path='*' element={<Error/>}/>
+ </Routes>
   
   )
 }
