@@ -3,6 +3,7 @@ import Navbar from "../componants/Navbar";
 import { useSelector, useDispatch } from "react-redux";
 import { Link,useNavigate } from "react-router-dom";
 import { clearCart } from "../features/cartSlice";
+import Footer from "../componants/Footer";
 const Checkout = () => {
     const dispatch = useDispatch()
     const navigate = useNavigate()
@@ -73,6 +74,7 @@ const Checkout = () => {
           </div>
         </div>
       </div>
+      <Footer />
     </>
   );
 };

@@ -2,10 +2,8 @@ import React, { useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { Link, useNavigate } from "react-router-dom";
 import toast from "react-hot-toast";
-import { clearCart } from "../features/cartSlice";
 import { setLoggedUser } from "../features/authSlice"; // Make sure this import is correct
-import Navbar from "../componants/Navbar";
-
+import Footer from "../componants/Footer";
 const Login = () => {
   const getUsers = useSelector((state) => state.auth.userList);
   const dispatch = useDispatch();
@@ -43,7 +41,6 @@ const Login = () => {
             darkMode ? "bg-gray-800" : "bg-white"
           }`}
         >
-          {/* Login Form */}
           <div
             className={`w-full md:w-3/5 px-8 py-12 flex flex-col justify-between ${
               darkMode ? "bg-gray-800 text-white" : "bg-gray-50 text-gray-900"
@@ -54,7 +51,6 @@ const Login = () => {
             </h2>
 
             <form className="space-y-6" onSubmit={handleLogin}>
-              {/* Username Input */}
               <input
                 value={user}
                 onChange={(e) => setUser(e.target.value)}
@@ -63,8 +59,6 @@ const Login = () => {
                 required
                 className="w-full px-4 py-2 border border-orange-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-orange-400"
               />
-
-              {/* Password Input */}
               <input
                 value={pass}
                 onChange={(e) => setPass(e.target.value)}
@@ -74,8 +68,6 @@ const Login = () => {
                 minLength={8}
                 className="w-full px-4 py-2 border border-orange-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-orange-400"
               />
-
-              {/* Submit Button */}
               <button
                 type="submit"
                 className="w-full bg-orange-500 text-white py-2 rounded-lg hover:bg-orange-600 transition duration-300"
@@ -91,8 +83,6 @@ const Login = () => {
               </Link>
             </p>
           </div>
-
-          {/* Image */}
           <div
             className={`w-full md:w-2/5 h-[250px] md:h-auto ${
               darkMode ? "bg-gray-700" : "bg-white"
@@ -111,6 +101,7 @@ const Login = () => {
           </div>
         </div>
       </div>
+        <Footer />
     </>
   );
 };

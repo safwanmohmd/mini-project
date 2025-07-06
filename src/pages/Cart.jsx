@@ -4,7 +4,7 @@ import { clearCart } from '../features/cartSlice';
 import CartItemCard from '../componants/CartItemCard';
 import Navbar from '../componants/Navbar';
 import { useNavigate } from 'react-router-dom';
-
+import Footer from '../componants/Footer';
 const Cart = () => {
   const navigate = useNavigate()
   const dispatch = useDispatch();
@@ -55,6 +55,7 @@ const Cart = () => {
            
         </div>
       )}
+      <Footer/>
     </>
   );
 };

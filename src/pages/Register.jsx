@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { Link, useNavigate } from "react-router-dom";
 import toast, { Toaster } from "react-hot-toast";
-
+import Footer from "../componants/Footer";
 import Navbar from "../componants/Navbar";
 import { addUser } from "../features/authSlice";
 const Register = () => {
@@ -39,7 +39,6 @@ const Register = () => {
             darkMode ? "bg-gray-800" : "bg-white"
           }`}
         >
-          {/* Register Form */}
           <div
             className={`w-full md:w-3/5 px-8 py-12 flex flex-col justify-between ${
               darkMode ? "bg-gray-800 text-white" : "bg-gray-50 text-gray-900"
@@ -82,8 +81,6 @@ const Register = () => {
               </Link>
             </p>
           </div>
-
-          {/* Image */}
           <div
             className={`w-full md:w-2/5 h-[250px] md:h-auto ${
               darkMode ? "bg-gray-700" : "bg-white"
@@ -97,6 +94,7 @@ const Register = () => {
           </div>
         </div>
       </div>
+        <Footer />
     </>
   );
 };

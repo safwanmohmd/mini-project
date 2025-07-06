@@ -2,7 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { useSelector } from "react-redux";
 import Navbar from "../componants/Navbar";
-
+import Footer from "../componants/Footer";
 const Error = () => {
   const darkMode = useSelector((state) => state.theme.darkMode);
 
@@ -45,6 +45,7 @@ const Error = () => {
           </div>
         </div>
       </div>
+        <Footer />
     </>
   );
 };

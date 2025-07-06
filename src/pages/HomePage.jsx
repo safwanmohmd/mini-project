@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import ProductCard from "../componants/ProductCard";
 import { addUser } from "../features/authSlice";
-
+import Footer from "../componants/Footer";
 const HomePage = () => {
   const dispatch = useDispatch();
 
@@ -83,8 +83,6 @@ const HomePage = () => {
               </div>
             </div>
           </div>
-
-          {/* Right Image */}
           <div
             className={`w-full md:w-[40%] relative md:h-auto h-[250px] ${
               darkMode ? "bg-gray-700" : "bg-white"
@@ -104,6 +102,7 @@ const HomePage = () => {
         </div>
       </div>
       </div>
+      <Footer/>
     </>
   );
 };

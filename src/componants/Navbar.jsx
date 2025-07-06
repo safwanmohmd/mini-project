@@ -49,7 +49,7 @@ const Navbar = () => {
       }`}
     >
       <div className="max-w-7xl mx-auto flex flex-col md:flex-row md:justify-between md:items-center gap-4">
-        {/* Left: Logo + Links */}
+       
         <div className="flex flex-col md:flex-row md:items-center gap-4">
           <div className="text-2xl font-bold text-red-600">CurryCrave</div>
           <ul className="flex gap-4 font-medium">
@@ -66,9 +66,8 @@ const Navbar = () => {
           </ul>
         </div>
 
-        {/* Right: Actions */}
+      
         <div className="flex flex-wrap gap-2 md:gap-4 items-center">
-          {/* Theme Toggle */}
           <button
             onClick={() => dispatch(toggleTheme())}
             title="Toggle Theme"
@@ -88,8 +87,6 @@ const Navbar = () => {
               )}
             </span>
           </button>
-
-          {/* Search Input */}
           <input
             onChange={handleSearch}
             value={search}
@@ -97,8 +94,6 @@ const Navbar = () => {
             type="search"
             placeholder="Search"
           />
-
-          {/* Category Select */}
           <select
             value={category}
             onChange={handleCategory}
@@ -109,8 +104,6 @@ const Navbar = () => {
             <option value="snack">snack</option>
             <option value="main course">main course</option>
           </select>
-
-          {/* Cart */}
           <Link to="/cart" className="relative">
             <FaShoppingCart className="text-xl hover:text-black" />
             {cartCount > 0 && (
@@ -119,16 +112,12 @@ const Navbar = () => {
               </span>
             )}
           </Link>
-
-          {/* User Info */}
           {user?.user && (
             <div className="text-sm whitespace-nowrap inline-flex items-center gap-1">
               <CiUser />
               {user.user}
             </div>
           )}
-
-          {/* Admin Button */}
           {user?.role === "admin" && (
             <Link to="/admin">
               <button className="bg-red-400 hover:bg-yellow-500 px-3 py-1 rounded-full text-sm font-semibold">
@@ -136,8 +125,6 @@ const Navbar = () => {
               </button>
             </Link>
           )}
-
-          {/* Auth Buttons */}
           {!user?.user ? (
             <>
               <Link to="/register">

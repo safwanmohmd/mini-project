@@ -2,7 +2,7 @@ import React, { useEffect } from 'react'
 import { useSelector,useDispatch } from 'react-redux';
 import ProductCard from '../componants/ProductCard';
 import Navbar from '../componants/Navbar';
-
+import Footer from '../componants/Footer';
 import { filterProducts } from "../features/productSlice";
 const Menu = () => {
     const { filtered, loading } = useSelector((state) => state.products);
@@ -26,6 +26,7 @@ const Menu = () => {
         )}
       </div>
       </div>
+        <Footer />
     </>
   )
 }

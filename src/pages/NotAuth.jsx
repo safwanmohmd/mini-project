@@ -2,7 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { useSelector } from "react-redux";
 import Navbar from "../componants/Navbar";
-
+import Footer from "../componants/Footer";
 const NotAuthorized = () => {
   const darkMode = useSelector((state) => state.theme.darkMode);
 
@@ -42,6 +42,7 @@ const NotAuthorized = () => {
           </div>
         </div>
       </div>
+        <Footer />
     </>
   );
 };
