@@ -48,42 +48,26 @@ A fully responsive food ordering web application built with **React** and **Redu
 
 ## 📁 Project Structure
 
-src/
-├── public/
-│ ├── food.png
-│ └── data.json
-│
-├── components/
-│ ├── AdminInputs.jsx
-│ ├── AdminProductCard.jsx
-│ ├── AdminProtetedRoute.jsx
-│ ├── CartItemCard.jsx
-│ ├── Footer.jsx
-│ ├── Navbar.jsx
-│ ├── ProductCard.jsx
-│ └── ProtectedRoute.jsx
-│
-├── features/
-│ ├── authSlice.js
-│ ├── cartSlice.js
-│ ├── productSlice.js
-│ └── themeSlice.js
-│
-├── pages/
-│ ├── Admin.jsx
-│ ├── Cart.jsx
-│ ├── Checkout.jsx
-│ ├── Error.jsx
-│ ├── HomePage.jsx
-│ ├── Login.jsx
-│ ├── Menu.jsx
-│ ├── NotAuth.jsx
-│ └── Register.jsx
-│
-├── App.css
-├── App.jsx
-└── main.jsx
+src/  
+├── assets/  
+│   └── food.png  
+├── componants/  
+│   ├── Navbar.jsx  
+│   └── ProductCard.jsx  
+├── features/  
+│   ├── authSlice.js  
+│   ├── cartSlice.js  
+│   └── productSlice.js  
+├── pages/  
+│   ├── HomePage.jsx  
+│   ├── LoginPage.jsx  
+│   ├── MenuPage.jsx  
+│   ├── AdminPage.jsx  
+│   ├── NotFoundPage.jsx  
+│   └── NotAuthorized.jsx  
+└── App.jsx  
 
+---
 
 ## 🚀 Getting Started
 
