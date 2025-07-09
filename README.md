@@ -1,98 +1,128 @@
+# 🍽️ CurryCrave – Food Ordering Web App
 
-# 🍽️ Food Ordering Website
+🔗 **Live Preview:** [https://mini-project-eight-gamma.vercel.app](https://mini-project-eight-gamma.vercel.app)
 
-A responsive food ordering web application built with React and Redux. Users can browse a menu, add items to a cart, and place orders. Admins can manage product listings through a secure admin panel.
+A fully responsive food ordering web application built with **React** and **Redux**. Users can browse a food menu, manage their cart, and place orders, while admins can securely manage the product listings.
 
-## 🚀 Features
+---
 
-- **Navbar**: Persistent navigation bar with links to Home, Menu, Cart, and Login.
-- **Home Page**: Landing page with welcome banner, product highlights, and total cart value.
-- **Login Page**: User login functionality. Admin credentials are preset and stored in localStorage.
-- **Admin Panel**:
-  - Restricted to users with the "admin" role.
-  - Admin can add, delete, and edit products.
-  - Admin credentials are auto-added if missing:
-    - Username: `admin`
-    - Password: `admin@123`
-- **Menu Page**: Displays all available food products in a responsive grid layout.
-- **Responsive Design**: Fully mobile-friendly and adapts to all screen sizes.
 
-## 🗃️ Data Handling
+## 🌟 Features
 
-- Product data is initially loaded from a `products.json` file.
-- If localStorage is empty, products are pushed into localStorage automatically.
-- All product operations (add/edit/delete) reflect in both Redux state and localStorage.
-- Cart data is managed through Redux and preserved on refresh.
+- 🧭 **Navbar** – Persistent with links to Home, Menu, Cart, and Login  
+- 🏠 **Home Page** – Attractive landing page with product highlights and cart summary  
+- 🔐 **Login Page** – Secure login with preset admin credentials (stored in `localStorage`)  
+- 🛠️ **Admin Panel**  
+  - Accessible only by admins  
+  - Add, edit, and delete food products  
+  - Auto-creates admin credentials on first load:  
+    - Username: `admin`  
+    - Password: `admin@123`  
+- 🍕 **Menu Page** – Displays food products in a clean, responsive grid layout  
+- 🛒 **Cart** – Add and remove items with real-time total  
+- 📱 **Responsive Design** – Mobile-first layout for all screen sizes  
+- 🌙 **Dark Mode** – Toggle between light and dark themes  
+- 🔔 **Toast Notifications** – Instant feedback using `react-hot-toast`  
 
-## 💡 Tech Stack
+---
 
-- **Frontend**: React, Tailwind CSS
-- **State Management**: Redux Toolkit
-- **Routing**: React Router DOM
-- **Persistence**: LocalStorage
-- **Notifications**: react-hot-toast
+## 🗂️ Data Management
 
-## 📁 Folder Structure
+- 📦 Products loaded from `products.json` on first visit  
+- 💾 Synced with `localStorage` for persistence  
+- 🔄 Redux handles all product/cart state and reflects changes instantly  
 
-```
+---
+
+## 🛠️ Tech Stack
+
+| Area          | Technology          |
+|---------------|---------------------|
+| Frontend      | React, Tailwind CSS |
+| State Mgmt    | Redux Toolkit       |
+| Routing       | React Router DOM    |
+| Persistence   | LocalStorage        |
+| Notifications | react-hot-toast     |
+
+---
+
+## 📁 Project Structure
+
 src/
-├── assets/
-│   └── food.png
-├── componants/
-│   ├── Navbar.jsx
-│   └── ProductCard.jsx
+├── public/
+│ ├── food.png
+│ └── data.json
+│
+├── components/
+│ ├── AdminInputs.jsx
+│ ├── AdminProductCard.jsx
+│ ├── AdminProtetedRoute.jsx
+│ ├── CartItemCard.jsx
+│ ├── Footer.jsx
+│ ├── Navbar.jsx
+│ ├── ProductCard.jsx
+│ └── ProtectedRoute.jsx
+│
 ├── features/
-│   ├── authSlice.js
-│   ├── cartSlice.js
-│   └── productSlice.js
+│ ├── authSlice.js
+│ ├── cartSlice.js
+│ ├── productSlice.js
+│ └── themeSlice.js
+│
 ├── pages/
-│   ├── HomePage.jsx
-│   ├── LoginPage.jsx
-│   ├── MenuPage.jsx
-│   ├── AdminPage.jsx
-│   ├── NotFoundPage.jsx
-│   └── NotAuthorized.jsx
-└── App.jsx
-```
+│ ├── Admin.jsx
+│ ├── Cart.jsx
+│ ├── Checkout.jsx
+│ ├── Error.jsx
+│ ├── HomePage.jsx
+│ ├── Login.jsx
+│ ├── Menu.jsx
+│ ├── NotAuth.jsx
+│ └── Register.jsx
+│
+├── App.css
+├── App.jsx
+└── main.jsx
 
-## ✅ Getting Started
 
-1. **Clone the repository:**
-   ```bash
-   git clone https://github.com/your-username/food-order-app.git
-   cd food-order-app
-   ```
+## 🚀 Getting Started
 
-2. **Install dependencies:**
-   ```bash
-   npm install
-   ```
+1. Clone the repository  
+   `git clone https://github.com/your-username/food-order-app.git`  
+   `cd food-order-app`
 
-3. **Run the app:**
-   ```bash
-   npm run dev
-   ```
+2. Install dependencies  
+   `npm install`
 
-4. Open your browser and go to:
-   ```
-   http://localhost:5173
-   ```
+3. Start the development server  
+   `npm run dev`
+
+4. View in browser  
+   `http://localhost:5173`
+
+---
 
 ## 🔐 Admin Credentials
 
-| Role   | Username | Password    |
-|--------|----------|-------------|
-| Admin  | admin    | admin@123   |
+| Role  | Username | Password   |
+|-------|----------|------------|
+| Admin | admin    | admin@123  |
 
-These credentials are injected into localStorage on first app load if not present.
+> ✅ These credentials are automatically injected into `localStorage` if missing.
 
-## 🛡️ Route Protection
+---
 
-- Admin pages are protected via a custom `AdminProtectedRoute` component.
-- Unauthorized access redirects to a custom `403 - Not Authorized` page.
-- Unknown URLs redirect to a `404 - Not Found` page.
+## 🧱 Route Protection
+
+- 🔒 Admin routes secured using `AdminProtectedRoute` component  
+- 🚫 Unauthorized users are redirected to a custom `403 – Not Authorized` page  
+- 🧭 Invalid routes lead to a `404 – Not Found` page  
+
+---
 
 ## 🙌 Acknowledgments
+
+Thanks to these awesome tools:
 
 - [React](https://reactjs.org/)
 - [Redux Toolkit](https://redux-toolkit.js.org/)
@@ -100,6 +130,8 @@ These credentials are injected into localStorage on first app load if not presen
 - [Tailwind CSS](https://tailwindcss.com/)
 - [React Hot Toast](https://react-hot-toast.com/)
 
+---
+
 ## 📜 License
 
-This project is licensed under the [MIT License](LICENSE).
+This project is licensed under the [MIT License](LICENSE)
