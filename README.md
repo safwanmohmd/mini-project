@@ -90,7 +90,7 @@ src/
 
 | Role  | Username | Password   |
 |-------|----------|------------|
-| Admin | admin    | admin@123  |
+| admin | admin    | admin@123  |
 
 > ✅ These credentials are automatically injected into `localStorage` if missing.
 
